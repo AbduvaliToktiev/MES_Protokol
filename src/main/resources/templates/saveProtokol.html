@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Добавление нового протокола</title>
+</head>
+<body>
+<h3>Форма добавления протокола</h3>
+<form th:action="@{save-protokol}" method="post" th:object="${protokol}">
+    <div><label> Наименование : <input th:value="${name}" type="text" name="name"/> </label></div>
+    <div><label> Объект : <input th:value="${object}" type="text" name="object"/> </label></div>
+    <div><label> Дата : <input th:value="${date}" type="date" name="date"/> </label></div>
+    <div><label> Тип Трансформатора : <input th:value="${typeTransformator}" type="text" name="typeTransformator"/></label></div>
+    <div><label> Зав.№ : <input th:value="${factoryNumber}" type="number" name="factoryNumber"/> </label></div>
+    <div><label> Мощность кВА : <input th:value="${powerKVA}" type="number" name="powerKVA"/> </label></div>
+    <div><label> Напряжение кВ : <input th:value="${power}" type="text" name="power"/> </label></div>
+    <div><label> Ток. А : <input th:value="${tokA}" type="text" name="tokA"/> </label></div>
+    <div><label> Ек % : <input th:value="${ek}" type="number" name="ek"/> </label></div>
+    <div><label> Группа соединения : <input th:value="${connextionGroup}" type="text" name="connectionGroup"/> </label></div>
+    <div><input type="submit" value="Добавить"/></div>
+</form>
+</body>
+</html>

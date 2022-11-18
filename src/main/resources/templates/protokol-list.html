@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org"
+      xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity3">
+<head>
+    <meta charset="UTF-8">
+    <title>Список протоколов</title>
+</head>
+<body>
+<h3>Таблица протоколов</h3>
+<table border="3">
+    <tr>
+        <th>ID</th>
+        <th>Название протокола</th>
+        <th>Предприятие</th>
+        <th>Объект</th>
+        <th>Дата</th>
+        <th>Тип</th>
+        <th>Зав. №</th>
+        <th>Мощность кВА</th>
+        <th>Напряжение кв</th>
+        <th>Ток. А</th>
+        <th>Ек. %</th>
+        <th>Группа соединения</th>
+        <th>Охлаждение</th>
+    </tr>
+    <tr th:each="protokol : ${protokols}">
+        <td th:text="${protokol.id}"></td>
+        <td th:text="${protokol.name}"></td>
+        <td th:text="${protokol.company}"></td>
+        <td th:text="${protokol.object}"></td>
+        <td th:text="${protokol.date}"></td>
+        <td th:text="${protokol.typeTransformator}"></td>
+        <td th:text="${protokol.factoryNumber}"></td>
+        <td th:text="${protokol.powerKVA}"></td>
+        <td th:text="${protokol.power}"></td>
+        <td th:text="${protokol.tokA}"></td>
+        <td th:text="${protokol.ek}"></td>
+        <td th:text="${protokol.connectionGroup}"></td>
+        <td th:text="${protokol.cooling}"></td>
+    </tr>
+</table>
+<form th:action="@{mainPage-protokol}" method="post">
+  <input type="submit" value="Возврат на главную страницу">
+</form>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Температура обмотки при измерении</title>
+</head>
+<body>
+<h3>Температура обмотки при измерении</h3>
+<form th:action="@{save-protokol}" method="post" th:object="${tempObmotkiPriIzmerenii}">
+  <div><label> Температура : <input th:value="${temperatura}" type="text" name="temperatura"/> </label></div>
+  <div><label> ВН-бак+НН : <input th:value="${VN_bak_NN}" type="number" name="VN_bak_NN"/> </label></div>
+  <div><label> ВН-бак+НН : <input th:value="${VN_bak_NN}" type="number" name="VN_bak_NN"/> </label></div>
+  <div><label> НН-бак+ВН : <input th:value="${NN_bak_VN}" type="number" name="NN_bak_VN"/> </label></div>
+  <div><label> НН-бак+ВН : <input th:value="${NN_bak_VN}" type="number" name="NN_bak_VN"/> </label></div>
+  <div><label> ВН-НН+бак : <input th:value="${VN_NN_bak}" type="number" name="VN_NN_bak"/> </label></div>
+  <div><label> ВН-НН+бак : <input th:value="${VN_NN_bak}" type="number" name="VN_NN_bak"/> </label></div>
+
+  <div><input type="submit" value="Добавить"/></div>
+    <form>
+</body>
+</html>

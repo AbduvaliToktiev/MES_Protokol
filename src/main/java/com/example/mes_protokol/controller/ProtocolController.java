@@ -57,17 +57,10 @@ public class ProtocolController {
         dimension.setFactoryNumber("№ 463232");
         dimension.setProtokol(protokol);
 
-        Winding winding = new Winding();
-        winding.setCheckMethod("Увлажненность обомток проверена методом абсорбции. Измеренный кэф-т 3≥1");
-        winding.setConstantCurrency("Сопротивление обмоток постоянному току измерено Р4833");
-        winding.setFactoryNumber("№ 14388");
-        winding.setProtokol(protokol);
-
         protokol.setCooling(Cooling.ЕСТЕСТВЕННОЕ_МАСЛЯННОЕ);
         protokol.setCompany("ОСОО <<МЭС>>");
         this.protokolService.saveProtocol(protokol);
         this.dimensionService.saveDimension(dimension);
-        this.windingService.saveWinding(winding);
         return "SoprotivlenieR15";
     }
 

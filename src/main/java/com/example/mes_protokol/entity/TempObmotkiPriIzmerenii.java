@@ -13,19 +13,24 @@ import java.math.BigDecimal;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "TEMP_OBMOTKI_PRI_IZMINENII")
+@Entity
+@Table(name = TempObmotkiPriIzmerenii.TABLE_NAME)
 public class TempObmotkiPriIzmerenii {
 
+    public static final String TABLE_NAME = "TEMP_OBMOTKI_PRI_IZMERENII";
+    public static final String SEQ_NAME = TABLE_NAME + "_SEQ";
+
     @Id
-    @GeneratedValue
+    @SequenceGenerator(name = SEQ_NAME, sequenceName = SEQ_NAME, allocationSize = 1)
+    @GeneratedValue(generator = SEQ_NAME)
     private Long id;
 
     @Enumerated(EnumType.STRING)
     @Column(name = "schema_izmerenii")
     private SchemaIzmerenii schemaIzmerenii;
 
-    @Column(name = "temperatura")
-    private String temperatura;
+    @Column(name = "temperature")
+    private String temperature;
 
     @Column(name = "VN_bak_NN")
     private Integer VN_bak_NN;

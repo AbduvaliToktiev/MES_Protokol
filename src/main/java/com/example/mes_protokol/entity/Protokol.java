@@ -16,11 +16,16 @@ import java.util.Date;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "PROTOKOLS")
+@Entity
+@Table(name = Protokol.TABLE_NAME)
 public class Protokol {
 
+    public static final String TABLE_NAME = "PROTOKOLS";
+    public static final String SEQ_NAME = TABLE_NAME + "_SEQ";
+
     @Id
-    @GeneratedValue
+    @SequenceGenerator(name = SEQ_NAME, sequenceName = SEQ_NAME, allocationSize = 1)
+    @GeneratedValue(generator = SEQ_NAME)
     private Long id;
 
     @Column(name = "name")

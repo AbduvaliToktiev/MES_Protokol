@@ -27,7 +27,7 @@ public class TempObmotkiPriIzmereniiController {
         tempObmotkiPriIzmerenii.setVN_bak_NN(tempObmotkiPriIzmereniiModel.getVN_bak_NN());
         tempObmotkiPriIzmerenii.setNN_bak_VN(tempObmotkiPriIzmereniiModel.getNN_bak_VN());
         tempObmotkiPriIzmerenii.setVN_NN_bak(tempObmotkiPriIzmereniiModel.getVN_NN_bak());
-        tempObmotkiPriIzmerenii.setTemperatura(tempObmotkiPriIzmereniiModel.getTemperatura());
+        tempObmotkiPriIzmerenii.setTemperature(tempObmotkiPriIzmereniiModel.getTemperature());
         tempObmotkiPriIzmerenii.setProtokol(protokol);
         tempObmotkiPriIzmerenii.setSchemaIzmerenii(SchemaIzmerenii.Сопротивл_е_R15Мом);
 
@@ -43,10 +43,10 @@ public class TempObmotkiPriIzmereniiController {
         tempObmotkiPriIzmerenii.setVN_bak_NN(tempObmotkiPriIzmereniiModel.getVN_bak_NN());
         tempObmotkiPriIzmerenii.setNN_bak_VN(tempObmotkiPriIzmereniiModel.getNN_bak_VN());
         tempObmotkiPriIzmerenii.setVN_NN_bak(tempObmotkiPriIzmereniiModel.getVN_NN_bak());
-        tempObmotkiPriIzmerenii.setTemperatura(tempObmotkiPriIzmereniiModel.getTemperatura());
+        tempObmotkiPriIzmerenii.setTemperature(tempObmotkiPriIzmereniiModel.getTemperature());
         tempObmotkiPriIzmerenii.setSchemaIzmerenii(SchemaIzmerenii.Сопротивл_е_R60Мом);
         tempObmotkiPriIzmerenii.setProtokol(protokol);
         this.tempObmotkiPriIzmereniiService.saveTempObmotki(tempObmotkiPriIzmerenii);
-        return "mainPage";
+        return "WindingTemp";
     }
 }

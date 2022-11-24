@@ -20,7 +20,7 @@
     <div><label> Мощность кВА : <input th:value="${powerKVA}" type="number" name="powerKVA"/> </label></div>
     <div><label> Напряжение кВ : <input th:value="${power}" type="text" name="power"/> </label></div>
     <div><label> Ток. А : <input th:value="${tokA}" type="text" name="tokA"/> </label></div>
-    <div><label> Ек % : <input th:value="${ek}" type="number" name="ek"/> </label></div>
+    <div><label> Ек % : <input th:value="${ek}" type="number" name="ek" step="any"/> </label></div>
     <div><label> Группа соединения : <input th:value="${connextionGroup}" type="text" name="connectionGroup"/> </label></div>
     <div><input type="submit" value="Добавить"/></div>
 </form>

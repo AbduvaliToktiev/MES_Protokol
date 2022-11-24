@@ -13,12 +13,23 @@ import java.math.BigDecimal;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "CHARAHTERICTICS")
+@Entity
+@Table(name = Charahterictics.TABLE_NAME)
 public class Charahterictics {
 
+    public static final String TABLE_NAME = "CHARAHTETICTICS";
+    public static final String SEQ_NAME = TABLE_NAME + "_SEQ";
+
     @Id
-    @GeneratedValue
+    @SequenceGenerator(name = SEQ_NAME, sequenceName = SEQ_NAME, allocationSize = 1)
+    @GeneratedValue(generator = SEQ_NAME)
     private Long id;
+
+    @Column(name = "name_obmotki")
+    private String nameObmotki = "Наимнов.обмоток";
+
+    @Column(name = "polozhPerekl")
+    private String polozhPerekl = "Полож.перекл.";
 
     @Enumerated(EnumType.STRING)
     @Column(name = "phase")
@@ -40,7 +51,7 @@ public class Charahterictics {
     private BigDecimal highVoltageV;
 
     @Column(name = "low_voltage")
-    private BigDecimal lowVoltage;
+    private Double lowVoltage;
 
     @ManyToOne(cascade = CascadeType.ALL, fetch = FetchType.EAGER)
     private Protokol protokol;

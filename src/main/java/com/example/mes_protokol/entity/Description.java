@@ -12,11 +12,16 @@ import javax.persistence.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "DESCRIPTION")
+@Entity
+@Table(name = Description.TABLE_NAME)
 public class Description {
 
+    public static final String TABLE_NAME = "DESCRIPTIONS";
+    public static final String SEQ_NAME = TABLE_NAME + "_SEQ";
+
     @Id
-    @GeneratedValue
+    @SequenceGenerator(name = SEQ_NAME, sequenceName = SEQ_NAME, allocationSize = 1)
+    @GeneratedValue(generator = SEQ_NAME)
     private Long id;
 
     @Column(name = "note")

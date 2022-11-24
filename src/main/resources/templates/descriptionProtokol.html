@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Заключение Протокола</title>
+</head>
+<body>
+<h3>Заключение протокола</h3>
+<form th:action="@{save-description}" method="post" th:object="${description}">
+    <input hidden="hidden" type="text" name="protokolName" th:value="${charahterictics.getProtokolName()}"
+           th:placeholder="ProtokolName">
+    <div><label> Примечание : <input th:value="${note}" type="text" name="note"> </label></div>
+    <div><label> Заключение : <input th:value="${conclusion}" type="text" name="conclusion"> </label></div>
+    <div><label> Испытание и измерения произвёл (ФИО) : <input th:value="${fio}" type="text" name="fio"></label></div>
+    <div><input type="submit" value="Добавить"></div>
+</form>
+</body>
+</html>

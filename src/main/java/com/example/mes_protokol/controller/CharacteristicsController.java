@@ -68,6 +68,6 @@ public class CharacteristicsController {
         charahterictics.setHighVoltageV(charahtericticsModel.getHighVoltageV());
         charahterictics.setLowVoltage(charahtericticsModel.getLowVoltage());
         this.characteristicsService.saveCharacterictics(charahterictics);
-        return "mainPage";
+        return "descriptionProtokol";
     }
 }

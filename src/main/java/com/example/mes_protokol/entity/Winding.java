@@ -25,7 +25,10 @@ public class Winding {
     private String constantCurrency;
 
     @Column(name = "factory_number")
-    private Integer factoryNumber;
+    private String factoryNumber;
+
+    @Column(name = "temperature")
+    private String temperature;
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "protokol_id", referencedColumnName = "id")

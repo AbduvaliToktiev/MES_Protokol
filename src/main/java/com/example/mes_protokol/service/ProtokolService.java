@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.NoSuchElementException;
 
 @Service
 public class ProtokolService {
@@ -21,4 +22,8 @@ public class ProtokolService {
         this.protokolRepository.save(protokol);
     }
 
+    public Protokol getByProtokolName(String protokolName) {
+        return this.protokolRepository.findByName(protokolName)
+                .orElseThrow(() -> new NoSuchElementException("Не найден протокол по названию: " + protokolName));
+    }
 }

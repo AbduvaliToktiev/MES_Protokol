@@ -1,6 +1,7 @@
 package com.example.mes_protokol.entity;
 
 import com.example.mes_protokol.enums.Cooling;
+import com.example.mes_protokol.enums.TransformatorType;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -35,8 +36,9 @@ public class Protokol {
     @DateTimeFormat(pattern ="yyyy-MM-dd")
     private Date date;
 
+    @Enumerated(EnumType.STRING)
     @Column(name = "type")
-    private String typeTransformator;
+    private TransformatorType typeTransformator;
 
     @Column(name = "factoryNumber")
     private String factoryNumber;

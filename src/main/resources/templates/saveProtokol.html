@@ -11,7 +11,11 @@
     <div><label> Наименование : <input th:value="${name}" type="text" name="name"/> </label></div>
     <div><label> Объект : <input th:value="${object}" type="text" name="object"/> </label></div>
     <div><label> Дата : <input th:value="${date}" type="date" name="date"/> </label></div>
-    <div><label> Тип Трансформатора : <input th:value="${typeTransformator}" type="text" name="typeTransformator"/></label></div>
+    <select th:field="*{typeTransformator}">
+        <option value="Name">Тип Трансформатора</option>
+        <option th:each="typeTransformator : ${T(com.example.mes_protokol.enums.TransformatorType).values()}"
+                th:value="${typeTransformator}" th:text="#{${typeTransformator}}"></option>
+    </select>
     <div><label> Зав.№ : <input th:value="${factoryNumber}" type="number" name="factoryNumber"/> </label></div>
     <div><label> Мощность кВА : <input th:value="${powerKVA}" type="number" name="powerKVA"/> </label></div>
     <div><label> Напряжение кВ : <input th:value="${power}" type="text" name="power"/> </label></div>

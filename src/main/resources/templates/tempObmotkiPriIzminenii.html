@@ -7,16 +7,30 @@
 </head>
 <body>
 <h3>Температура обмотки при измерении</h3>
-<form th:action="@{save-protokol}" method="post" th:object="${tempObmotkiPriIzmerenii}">
-  <div><label> Температура : <input th:value="${temperatura}" type="text" name="temperatura"/> </label></div>
-  <div><label> ВН-бак+НН : <input th:value="${VN_bak_NN}" type="number" name="VN_bak_NN"/> </label></div>
-  <div><label> ВН-бак+НН : <input th:value="${VN_bak_NN}" type="number" name="VN_bak_NN"/> </label></div>
-  <div><label> НН-бак+ВН : <input th:value="${NN_bak_VN}" type="number" name="NN_bak_VN"/> </label></div>
-  <div><label> НН-бак+ВН : <input th:value="${NN_bak_VN}" type="number" name="NN_bak_VN"/> </label></div>
-  <div><label> ВН-НН+бак : <input th:value="${VN_NN_bak}" type="number" name="VN_NN_bak"/> </label></div>
-  <div><label> ВН-НН+бак : <input th:value="${VN_NN_bak}" type="number" name="VN_NN_bak"/> </label></div>
+<form th:action="@{save-tempObmotki}" method="post" th:object="${tempObmotkiPriIzmerenii}">
+    <div><label> Температура : <input th:value="${temperatura}" type="text" name="temperatura"/> </label></div>
+    <br>
+    <select name="schemaIzmerenii">
+        <option th:each="schemaIzmerenii : ${T(com.example.mes_protokol.enums.SchemaIzmerenii).values()}"
+                th:text="${schemaIzmerenii}"
+                th:value="${schemaIzmerenii}">
+        </option>
+    </select>
+    <div><label> ВН-бак+НН : <input th:value="${VN_bak_NN}" type="number" name="VN_bak_NN"/> </label></div>
+    <div><label> НН-бак+ВН : <input th:value="${NN_bak_VN}" type="number" name="NN_bak_VN"/> </label></div>
+    <div><label> ВН-НН+бак : <input th:value="${VN_NN_bak}" type="number" name="VN_NN_bak"/> </label></div>
+    <br>
+    <select name="schemaIzmerenii">
+        <option th:each="schemaIzmerenii : ${T(com.example.mes_protokol.enums.SchemaIzmerenii).values()}"
+                th:text="${schemaIzmerenii}"
+                th:value="${schemaIzmerenii}">
+        </option>
+    </select>
+    <div><label> ВН-бак+НН : <input th:value="${VN_bak_NN}" type="number" name="VN_bak_NN"/> </label></div>
+    <div><label> НН-бак+ВН : <input th:value="${NN_bak_VN}" type="number" name="NN_bak_VN"/> </label></div>
+    <div><label> ВН-НН+бак : <input th:value="${VN_NN_bak}" type="number" name="VN_NN_bak"/> </label></div>
 
-  <div><input type="submit" value="Добавить"/></div>
-    <form>
+    <div><input type="submit" value="Добавить"/></div>
+    </form>
 </body>
 </html>

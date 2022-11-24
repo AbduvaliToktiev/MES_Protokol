@@ -3,11 +3,13 @@ package com.example.mes_protokol.controller;
 import com.example.mes_protokol.entity.Dimension;
 import com.example.mes_protokol.entity.Protokol;
 import com.example.mes_protokol.entity.TempObmotkiPriIzmerenii;
+import com.example.mes_protokol.entity.Winding;
 import com.example.mes_protokol.enums.Cooling;
 import com.example.mes_protokol.enums.SchemaIzmerenii;
 import com.example.mes_protokol.service.DimensionService;
 import com.example.mes_protokol.service.ProtokolService;
 import com.example.mes_protokol.service.TempObmotkiPriIzmereniiService;
+import com.example.mes_protokol.service.WindingService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -30,6 +32,9 @@ public class ProtocolController {
     private DimensionService dimensionService;
 
     @Autowired
+    private WindingService windingService;
+
+    @Autowired
     private TempObmotkiPriIzmereniiService tempObmotkiPriIzmereniiService;
 
     @RequestMapping(value = "/", method = RequestMethod.GET)
@@ -38,7 +43,7 @@ public class ProtocolController {
     }
 
     @GetMapping(value = "/create-protokol")
-    public String create(Model model) {
+    public String createProtokol(Model model) {
         model.addAttribute("protokol", new Protokol());
         return "saveProtokol";
     }
@@ -52,18 +57,18 @@ public class ProtocolController {
         dimension.setFactoryNumber("№ 463232");
         dimension.setProtokol(protokol);
 
-        TempObmotkiPriIzmerenii tempObmotkiPriIzmerenii = new TempObmotkiPriIzmerenii();
-        tempObmotkiPriIzmerenii.setSchemaIzmerenii(SchemaIzmerenii.Сопротивл_е_R15Мом);
-        tempObmotkiPriIzmerenii.setProtokol(protokol);
-        tempObmotkiPriIzmerenii.setSchemaIzmerenii(SchemaIzmerenii.Сопротивл_е_R60Мом);
-        tempObmotkiPriIzmerenii.getProtokol();
+        Winding winding = new Winding();
+        winding.setCheckMethod("Увлажненность обомток проверена методом абсорбции. Измеренный кэф-т 3≥1");
+        winding.setConstantCurrency("Сопротивление обмоток постоянному току измерено Р4833");
+        winding.setFactoryNumber("№ 14388");
+        winding.setProtokol(protokol);
 
         protokol.setCooling(Cooling.ЕСТЕСТВЕННОЕ_МАСЛЯННОЕ);
         protokol.setCompany("ОСОО <<МЭС>>");
         this.protokolService.saveProtocol(protokol);
         this.dimensionService.saveDimension(dimension);
-        this.tempObmotkiPriIzmereniiService.saveTempObmotki(tempObmotkiPriIzmerenii);
-        return "mainPage";
+        this.windingService.saveWinding(winding);
+        return "SoprotivlenieR15";
     }
 
     @GetMapping(value = "/get-all-protokol")

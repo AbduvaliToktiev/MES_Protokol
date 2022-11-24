@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Схема Измерений</title>
+</head>
+<body>
+<h3>Сопротивление R15Мом</h3>
+<form th:action="@{save-tempObmotki15}" method="post" th:object="${tempObmotkiPriIzmerenii}">
+  <div><label> Температура : <input th:value="${temperatura}" type="text" name="temperatura"/> </label></div>
+  <br>
+  <input hidden="hidden" type="text" th:value="${schemaIzmerenii}" name="schemaIzmerenii">
+  <input type="text" name = "protokolName" th:value="${protokol.getName()}" th:placeholder="ProtokolName">
+  <div><label> ВН-бак+НН : <input th:value="${VN_bak_NN}" type="number" name="VN_bak_NN"/> </label></div>
+  <div><label> НН-бак+ВН : <input th:value="${NN_bak_VN}" type="number" name="NN_bak_VN"/> </label></div>
+  <div><label> ВН-НН+бак : <input th:value="${VN_NN_bak}" type="number" name="VN_NN_bak"/> </label></div>
+  <br>
+  <div><input type="submit" value="Добавить"/></div>
+</form>
+</body>
+</html>

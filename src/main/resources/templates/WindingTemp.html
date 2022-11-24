@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Установка температуры</title>
+</head>
+<body>
+<form th:action="@{save-winding}" method="post" th:object="${winding}">
+  <div><label> Температура : <input th:value="${temperature}" type="text" name="temperatura"/> </label></div>
+    <div><input type="submit" value="Добавить"/></div>
+</form>
+</body>
+</html>
